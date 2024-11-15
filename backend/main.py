@@ -1,13 +1,11 @@
-from flask import Flask, request, jsonify
-from flask_cors import CORS
+from flask import Flask, request, jsonify, send_from_directory
 from PIL import Image
 import numpy as np
 import tensorflow as tf
 from io import BytesIO
+import os
 
-app = Flask(__name__)
-cors = CORS(app)  # Allow CORS for all domains on all routes.
-app.config['CORS_HEADERS'] = 'Content-Type'
+app = Flask(__name__, static_url_path='', static_folder='static/',)
 
 # Global model variable to hold the loaded model
 model = None
@@ -23,6 +21,8 @@ def clear_model_cache():
     global model
     print("Clearing model cache...")
     model = None
+
+
 
 @app.route("/api/analyzeimage", methods=["POST"])
 def analyze():
@@ -71,6 +71,14 @@ def analyze():
         return {"preds": np.reshape(prediction, -1).tolist(), "err": None}
     except Exception as e:
         return {"err": str(e), "preds": None}
+
+@app.route('/')
+def serve_react():
+    return send_from_directory(app.static_folder, 'index.html')
+
+
+def main():
+    app.run(debug=False, host="localhost", port=5000)
 
 if __name__ == "__main__":
     app.run(debug=True, host="localhost", port=8081)
