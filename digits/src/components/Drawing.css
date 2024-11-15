@@ -1,0 +1,25 @@
+.drawingbox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 50%;
+    justify-content: space-around;
+}
+
+
+.drawingbox canva {
+    background-color: white;
+}
+
+.drawingbox .buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.drawingbox button {
+    border: 1px solid rgba(39, 39, 39, 0.856);
+    background-color: white;
+    padding: 1em 2em 1em 2em;
+    margin: 1em;
+}

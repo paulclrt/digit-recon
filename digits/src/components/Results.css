@@ -1,0 +1,38 @@
+div.results {
+    width: 80%;
+    height: 20px;
+
+}
+
+
+div.results ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    margin: 0;
+    padding: 1em;
+}
+
+div.results ul li {
+    display: inline;
+    color: #ffffffd7;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    margin-top: auto;
+}
+
+.low-percentage {
+    background-color: #f44336d7; /* Red for low percentage */
+  }
+  
+  .medium-percentage {
+    background-color: #ff9800d7; /* Orange for medium percentage */
+  }
+  
+  .high-percentage {
+    background-color: #4caf50d7; /* Green for high percentage */
+  }
